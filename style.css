@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'BespokeSans_Complete';
+    src: url('fonts/BespokeSans_Complete.woff2') format('woff2'),
+        url('fonts/BespokeSans_Complete.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 1. Couleur de fond de la page entière (gris très clair) */
+body {
+    background-color: #f4f4f9; 
+    margin: 0; /* Enlève les marges blanches par défaut du navigateur */
+    font-family: 'BespokeSans_Complete' ;
+}
+
+/* 2. La boîte d'en-tête avec sa propre couleur */
+.en-tete {
+    background-color: #707070; /* Bleu foncé, différent du fond de page */
+    padding: 60px 23px; /* Espace à l'intérieur de la boîte (haut/bas 15px, gauche/droite 40px) */
+    
+    /* Flexbox pour aligner le titre et le menu */
+    display: flex;  /* Pousse le titre à gauche et le menu à droite */
+ /* Centre le tout verticalement */
+}
+
+/* 3. Style du titre dans l'en-tête */
+.en-tete h1 {
+    color: white; /* Titre en blanc pour qu'il se voie sur le fond bleu */
+    margin: 0;
+    font-style: normal;
+}
+
+/* 4. Style du menu horizontal (comme vu précédemment) */
+.menu-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 18%;
+    margin-right: 18%;
+    gap: 20%; /* Espace entre les liens */
+}
+
+.menu-horizontal a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu-horizontal a:hover {
+    color: #3498db; /* Bleu clair au survol */
+}
+
+body {
+    background-color: #E3E3E3;
+    font-family: 'BespokeSans_Complete', Arial, sans-serif;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-family: 'BespokeSans_Complete', Arial, sans-serif;
+    font-size: 64px;
+}
+
+h3 {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.presentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'BespokeSans_Complete', Arial, sans-serif;
+}
+
+.paragraphe-un {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    max-width: 80%;
+    padding-top: 0%;
+}
+.paragraphe-un {
+    font-size: 18px;
+    color: #000000;
+    line-height: 1.6;
+}
+
+footer {
+  text-align: center; /* Centre le texte */
+  padding: 20px 0; /* Ajoute de l'espace au-dessus et en dessous */
+  width: 100%;
+  position: absolute; 
+  bottom: 0; /* Le colle en bas de la page */
+  font-size: 0.9em;
+  color: #555;
+}
+/* Assurez-vous que le body prend toute la hauteur pour que l'absolute fonctionne bien */
+body {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 60px; /* Espace pour ne pas que le texte chevauche le footer */
+}
