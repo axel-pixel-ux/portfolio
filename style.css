@@ -32,13 +32,11 @@ body {
 
 /* 4. Style du menu horizontal (comme vu précédemment) */
 .menu-horizontal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-left: 18%;
-    margin-right: 18%;
-    gap: 20%; /* Espace entre les liens */
+    display: flex; /* Active Flexbox, un système super puissant pour aligner des éléments sur une seule ligne ou colonne */
+  justify-content: space-between; /* Écarte les éléments au maximum : le logo est poussé tout à gauche, le menu tout à droite */
+  align-items: center; /* Aligne verticalement le logo et les liens pour qu'ils soient tous centrés sur la même ligne imaginaire */
+  padding: 0 10%; /* 0 espace en haut et en bas, mais ajoute 10% d'espace vide à gauche et à droite pour ne pas coller l'écran */
+  gap: 50px;
 }
 
 .menu-horizontal a {
@@ -93,17 +91,17 @@ h3 {
 }
 
 footer {
-  text-align: center; /* Centre le texte */
-  padding: 20px 0; /* Ajoute de l'espace au-dessus et en dessous */
-  width: 100%;
-  position: absolute; 
-  bottom: 0; /* Le colle en bas de la page */
-  font-size: 0.9em;
-  color: #555;
+  text-align: center; /* Aligne le texte parfaitement au centre de la zone du pied de page */
+  padding: 20px 0; /* Ajoute 20 pixels d'espace vide au-dessus et en dessous du texte pour qu'il respire */
+  width: 100%; /* S'assure que le pied de page s'étire de tout à gauche à tout à droite de l'écran */
+  position: absolute; /* Détache le footer du flux normal pour pouvoir le placer manuellement */
+  bottom: 0; /* Fixe le footer tout en bas de l'élément parent (la page) */
+  font-size: 0.9em; /* Réduit légèrement la taille de la police pour que ce texte soit secondaire */
+  color: #555; /* Applique une couleur grise pour qu'il n'attire pas trop l'attention */
 }
-/* Assurez-vous que le body prend toute la hauteur pour que l'absolute fonctionne bien */
+
 body {
-  min-height: 100vh;
-  position: relative;
-  padding-bottom: 60px; /* Espace pour ne pas que le texte chevauche le footer */
+  min-height: 100vh; /* Force la page entière (le corps) à faire au minimum 100% de la hauteur visible de votre écran (Viewport Height) */
+  position: relative; /* Indispensable pour que le 'position: absolute' du footer sache qu'il doit se coller au bas du 'body' */
+  padding-bottom: 60px; /* Crée une zone de sécurité vide en bas de la page équivalente à la taille du footer, pour empêcher votre contenu de passer en dessous */
 }
