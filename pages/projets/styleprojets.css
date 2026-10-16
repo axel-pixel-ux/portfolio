@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'BespokeSans_Complete';
+    src: url('fonts/BespokeSans_Complete.woff2') format('woff2'),
+        url('fonts/BespokeSans_Complete.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 1. Couleur de fond de la page entière (gris très clair) */
+body {
+    background-color: #E3E3E3; 
+    margin: 0; /* Enlève les marges blanches par défaut du navigateur */
+    font-family: 'BespokeSans_Complete' , Arial, sans-serif; /* Police personnalisée avec fallback */
+}
+
+/* --- VERSION ORDINATEUR --- */
+h1 {
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'BespokeSans_Complete' , Arial, sans-serif; /* Police personnalisée avec fallback */
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%; /* Un peu de padding en haut/bas pour la hauteur */
+  background-color: #7a7a7a;
+  position: relative; /* Nécessaire pour bien placer le menu mobile plus tard */
+  font-family: 'BespokeSans_Complete' , Arial, sans-serif; /* Police personnalisée avec fallback */
+}
+
+nav {
+  display: flex;
+  /* clamp(minimum, taille idéale, maximum) : 
+     L'espace sera de 4% de la largeur de l'écran, mais ne descendra jamais 
+     en dessous de 15px et ne dépassera jamais 60px quand on agrandit */
+  gap: clamp(15px, 4vw, 60px); 
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+header a:hover {
+  color: #ffcc00;
+}
+
+/* On cache le bouton hamburger sur les grands écrans */
+.menu-btn {
+  display: none; 
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* --- VERSION TÉLÉPHONE / PETITE FENÊTRE --- */
+@media (max-width: 768px) {
+  
+  /* --- Le design du bouton Burger --- */
+  .menu-btn {
+    display: flex; /* Aligne les barres */
+    flex-direction: column; /* Les met les unes sous les autres */
+    gap: 6px; /* Espace entre les barres */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100; /* S'assure que le bouton reste au-dessus du menu */
+  }
+
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: white; /* Couleur des lignes du burger */
+    border-radius: 3px;
+    transition: all 0.3s ease; /* Animation fluide des lignes */
+  }
+
+  /* --- L'animation du bouton en Croix (X) --- */
+  .menu-btn.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg); /* Baisse et incline la 1ère ligne */
+  }
+  .menu-btn.active .bar:nth-child(2) {
+    opacity: 0; /* Fait disparaître la ligne du milieu */
+  }
+  .menu-btn.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg); /* Monte et incline la 3ème ligne */
+  }
+
+  /* --- Le design et l'animation du Menu Déroulant --- */
+  nav {
+    position: absolute;
+    top: 90px; /* Le place sous la barre grise */
+    right: 5%; /* Légèrement décollé du bord droit */
+    background-color: white; /* Fond blanc plus propre */
+    padding: 25px 40px; /* Beaucoup d'espace à l'intérieur */
+    border-radius: 12px; /* Bords bien arrondis */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Jolie ombre portée pour donner du relief */
+    
+    flex-direction: column;
+    align-items: center; /* Centre le texte dans la boîte */
+    gap: 20px;
+
+    /* Préparation de l'animation d'apparition */
+    opacity: 0; /* Totalement transparent par défaut */
+    visibility: hidden; /* Caché pour ne pas être cliqué par erreur */
+    transform: translateY(-20px); /* Le menu démarre un peu plus haut */
+    transition: all 0.4s ease; /* Durée de l'animation d'apparition */
+  }
+
+  /* Pour que les liens soient bien visibles sur fond blanc */
+  nav a {
+    color: #333; 
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  /* --- L'état "Actif" (Quand le menu est ouvert) --- */
+  #nav-menu.active {
+    opacity: 1; /* Devient 100% visible */
+    visibility: visible;
+    transform: translateY(0); /* Glisse vers sa position normale */
+  }
+}
+
+h3 {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.projets {
+    display: flex;
+    font-family: 'BespokeSans_Complete', Arial, sans-serif;
+    margin-left: 10%;
+    margin-top:10%;
+}
+
+.projets-p {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 30%;
+    max-width: 80%;
+    padding-top: 0%;
+    font-size: 18px;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.projets-l {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 30%;
+    max-width: 80%;
+    padding-top: 0%;
+    font-size: 16px;
+    color:rgb(68, 68, 71);
+}
+
+footer {
+    margin-top: auto; /* Pousse le pied de page vers le bas de la page */
+  text-align: center; /* Aligne le texte parfaitement au centre de la zone du pied de page */
+  padding: 20px 0; /* Ajoute 20 pixels d'espace vide au-dessus et en dessous du texte pour qu'il respire */
+  width: 100%; /* S'assure que le pied de page s'étire de tout à gauche à tout à droite de l'écran */
+  font-size: 0.9em; /* Réduit légèrement la taille de la police pour que ce texte soit secondaire */
+  color: #555; /* Applique une couleur grise pour qu'il n'attire pas trop l'attention */
+  display: flex;
+  padding: 30px 10%; /* Un peu de padding en haut/bas pour la hauteur */
+  background-color: #D9D9D9;
+  font-family: 'BespokeSans_Complete' , Arial, sans-serif; /* Police personnalisée avec fallback */
+}
+
+/* Disposition par défaut sur grand écran */
+.galerie {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  grid-auto-rows: 160px;
+  gap: 12px;
+  margin-top: 3%;
+}
+
+/* Règles générales pour toutes les images */
+.galerie img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Recadre proprement au lieu d'écraser */
+  object-position: center;  /* Centre le cadrage de l'image */
+  display: block;
+}
+
+.img-principale {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.img-droite {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Version mobile / écran réduit */
+@media (max-width: 768px) {
+  .galerie {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes de largeur égale */
+    grid-auto-rows: auto;
+    gap: 12px;                             /* Espace entre les cases */
+    padding: 0 16px;                       /* Marge sur les côtés */
+    box-sizing: border-box;
+  }
+
+  .img-principale,
+  .img-droite {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .galerie img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;                   /* Format carré parfait */
+    object-fit: cover;                     /* Recadre sans étirer */
+    border-radius: 4px;
+  }
+}
+
+body {
+  margin: 0; /* Enlève les marges blanches par défaut du navigateur */
+  min-height: 100vh; /* Assure que le corps prend toujours au moins 100% de l'écran */
+  display: flex; 
+  flex-direction: column; /* Aligne le contenu (header, texte, footer) en colonne, de haut en bas */
+}

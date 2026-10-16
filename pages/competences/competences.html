@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="stylecompetences.css">
+    
+</nav>
+  </head class="en-tete">
+  <body>
+    <header class="en-tete">
+        <h1>Portfolio</h1>
+        <!-- Bouton qui n'apparaîtra que sur téléphone -->
+        <button class="menu-btn" id="burger-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="menu-horizontal" id="nav-menu">
+            <a href="../../index.html">Accueil</a>
+            <a href="../projets/projets.html">Projets</a>
+            <a href="./competences.html">Compétences</a>
+            <a href="../parcours/parcours.html">Parcours</a>
+            <a href="../contact/contact.html">Contact</a>
+        </nav>
+    </header>
+    <h3 class="projets" id="projet-1">Projet 1</h3>
+    <p class="projets-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat erat nibh, id facilisis diam cursus sit amet. Nunc tristique porttitor magna ut commodo. Suspendisse potenti. Aenean commodo ut tellus in semper. </p>
+  </body>
+    <footer>
+        <p>&copy; 2026 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+    <script>
+  const burgerBtn = document.getElementById('burger-btn');
+  const navMenu = document.getElementById('nav-menu');
+
+  burgerBtn.addEventListener('click', () => {
+    // Anime le bouton en croix
+    burgerBtn.classList.toggle('active');
+    // Fait glisser le menu
+    navMenu.classList.toggle('active');
+  });
+</script>
+  </body>
+</html>
